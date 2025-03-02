@@ -1,0 +1,14 @@
+R:\Programs\C#\C# ButNotForUnity\ActuallyLearningC#\OtherTutorials\MessingWithCode(New)\MessingWithWindowsFroms\MessingWithWindowsForms\bin\Debug\MessingWithWindowsForms.exe.config
+R:\Programs\C#\C# ButNotForUnity\ActuallyLearningC#\OtherTutorials\MessingWithCode(New)\MessingWithWindowsFroms\MessingWithWindowsForms\bin\Debug\MessingWithWindowsForms.exe
+R:\Programs\C#\C# ButNotForUnity\ActuallyLearningC#\OtherTutorials\MessingWithCode(New)\MessingWithWindowsFroms\MessingWithWindowsForms\bin\Debug\MessingWithWindowsForms.pdb
+R:\Programs\C#\C# ButNotForUnity\ActuallyLearningC#\OtherTutorials\MessingWithCode(New)\MessingWithWindowsFroms\MessingWithWindowsForms\obj\Debug\MessingWithWindowsForms.csproj.AssemblyReference.cache
+R:\Programs\C#\C# ButNotForUnity\ActuallyLearningC#\OtherTutorials\MessingWithCode(New)\MessingWithWindowsFroms\MessingWithWindowsForms\obj\Debug\MessingWithWindowsForms.Properties.Resources.resources
+R:\Programs\C#\C# ButNotForUnity\ActuallyLearningC#\OtherTutorials\MessingWithCode(New)\MessingWithWindowsFroms\MessingWithWindowsForms\obj\Debug\MessingWithWindowsForms.csproj.GenerateResource.cache
+R:\Programs\C#\C# ButNotForUnity\ActuallyLearningC#\OtherTutorials\MessingWithCode(New)\MessingWithWindowsFroms\MessingWithWindowsForms\obj\Debug\MessingWithWindowsForms.csproj.CoreCompileInputs.cache
+R:\Programs\C#\C# ButNotForUnity\ActuallyLearningC#\OtherTutorials\MessingWithCode(New)\MessingWithWindowsFroms\MessingWithWindowsForms\obj\Debug\MessingWithWindowsForms.exe
+R:\Programs\C#\C# ButNotForUnity\ActuallyLearningC#\OtherTutorials\MessingWithCode(New)\MessingWithWindowsFroms\MessingWithWindowsForms\obj\Debug\MessingWithWindowsForms.pdb
+R:\Programs\C#\C# ButNotForUnity\ActuallyLearningC#\OtherTutorials\MessingWithCode(New)\MessingWithWindowsFroms\MessingWithWindowsForms\obj\Debug\MessingWithWindowsForms.FormLogoFadeIn.resources
+R:\Programs\C#\C# ButNotForUnity\ActuallyLearningC#\OtherTutorials\MessingWithCode(New)\MessingWithWindowsFroms\MessingWithWindowsForms\obj\Debug\MessingWithWindowsForms.CUMApp.resources
+R:\Programs\C#\C# ButNotForUnity\ActuallyLearningC#\OtherTutorials\MessingWithCode(New)\MessingWithWindowsFroms\MessingWithWindowsForms\obj\Debug\MessingWithWindowsForms.FormLogoFadeInManager.resources
+R:\Programs\C#\C# ButNotForUnity\ActuallyLearningC#\OtherTutorials\MessingWithCode(New)\MessingWithWindowsFroms\MessingWithWindowsForms\obj\Debug\MessingWithWindowsForms.FileSender.resources
+R:\Programs\C#\C# ButNotForUnity\ActuallyLearningC#\OtherTutorials\MessingWithCode(New)\MessingWithWindowsFroms\MessingWithWindowsForms\obj\Debug\MessingWithWindowsForms.FileReceiver.resources
