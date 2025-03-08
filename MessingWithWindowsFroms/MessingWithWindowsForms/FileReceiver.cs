@@ -150,36 +150,73 @@ namespace MessingWithWindowsForms
 
                                 yPadding += portNumberInputField.Height + (extraPad * 3);
 
-                                /* The "Start receiving" button */
+                                /* The "Received file name" text */
                                 {
-                                    Button startReceivingButton = CreateButton("StartReceivingButton", "Start receiving", new Point(xPadding, yPadding), defaultForeColor, defaultBackColor);
+                                    Label fileNameText = new Label();
+                                    fileNameText.Text = "Received file name:";
+                                    fileNameText.Name = "ReceivedFileNameTextText";
 
-                                    startReceivingButton.Font = defaultFont;
+                                    fileNameText.ForeColor = defaultForeColor;
+                                    fileNameText.BackColor = defaultBackColor;
 
-                                    startReceivingButton.Click += (s, e) => ReceiveFile();
+                                    fileNameText.Font = defaultFont;
+                                    fileNameText.Location = new Point(xPadding, yPadding);
+                                    fileNameText.AutoSize = true;
 
-                                    yPadding += startReceivingButton.Height + (extraPad * 2);
+                                    this.Controls.Add(fileNameText);
 
-                                    /* The debug text */
+                                    yPadding += fileNameText.Height + extraPad;
+
+                                    /* The name of the received file */
                                     {
-                                        Label receiveFileDebug = new Label();
-                                        receiveFileDebug.Text = "";
-                                        receiveFileDebug.Name = "ReceiveFileDebug";
+                                        TextBox fileName = new TextBox();
+                                        fileName.Text = "receivedFile.txt";
+                                        fileName.Name = "ReceivedFileNameInputField";
 
-                                        receiveFileDebug.ForeColor = defaultForeColor;
-                                        receiveFileDebug.BackColor = defaultBackColor;
+                                        fileName.Font = defaultFont;
+                                        fileName.Location = new Point(xPadding, yPadding);
+                                        fileName.Width = filePathInputField.Width;
 
-                                        receiveFileDebug.Font = defaultFont;
-                                        receiveFileDebug.Location = new Point(xPadding, yPadding);
-                                        receiveFileDebug.AutoSize = true;
-                                        receiveFileDebug.Width = this.Width;
-                                        receiveFileDebug.Height = this.Height;
+                                        this.Controls.Add(fileName);
 
-                                        this.Controls.Add(receiveFileDebug);
+                                        yPadding += fileName.Height + (extraPad * 3);
 
-                                        yPadding += receiveFileDebug.Height + extraPad;
+                                        /* The "Start receiving" button */
+                                        {
+                                            Button startReceivingButton = CreateButton("StartReceivingButton", "Start receiving", new Point(xPadding, yPadding), defaultForeColor, defaultBackColor);
+
+                                            startReceivingButton.Font = defaultFont;
+
+                                            startReceivingButton.Click += (s, e) => ReceiveFile();
+
+                                            yPadding += startReceivingButton.Height + (extraPad * 2);
+
+                                            /* The debug text */
+                                            {
+                                                Label receiveFileDebug = new Label();
+                                                receiveFileDebug.Text = "";
+                                                receiveFileDebug.Name = "ReceiveFileDebug";
+
+                                                receiveFileDebug.ForeColor = defaultForeColor;
+                                                receiveFileDebug.BackColor = defaultBackColor;
+
+                                                receiveFileDebug.Font = defaultFont;
+                                                receiveFileDebug.Location = new Point(xPadding, yPadding);
+                                                receiveFileDebug.AutoSize = true;
+                                                receiveFileDebug.Width = this.Width;
+                                                receiveFileDebug.Height = this.Height;
+
+                                                this.Controls.Add(receiveFileDebug);
+
+                                                yPadding += receiveFileDebug.Height + extraPad;
+                                            }
+                                        }
                                     }
                                 }
+
+                                
+
+                                
                             }
                         }
                     }
@@ -306,15 +343,16 @@ namespace MessingWithWindowsForms
         {
             using (client)
             {
-                string defaultFileName = Path.Combine(filePath, "receivedFile.txt");
+                string fileName = this.Controls.Find("ReceivedFileNameInputField", true).First().Text;
+                string defaultFileName = Path.Combine(filePath, fileName);
 
-                var buffer = new byte[1]; // default is 1024
+                var buffer = new byte[16]; // default is 1024
                 client.SendBufferSize = buffer.Length;
 
                 var stream = client.GetStream();
                 int bytesRead = 0;
 
-                WriteDebugText($"Receiving data: ");
+                WriteDebugText($"Receiving data: "); //var file = File.WriteAllBytes(defaultFileName, );
                 using (var fileStream = new FileStream(defaultFileName, FileMode.Create, FileAccess.Write))
                 {
                     int totalBytesRead = 0;
@@ -328,6 +366,9 @@ namespace MessingWithWindowsForms
                     WriteDebugText($"Total received: {totalBytesRead}");
                 }
             }
+
+            WriteDebugText($"Done");
+            client.Close();
         }
 
         //==========================================================================================================================================================

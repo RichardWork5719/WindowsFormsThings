@@ -281,13 +281,27 @@ namespace MessingWithWindowsForms
                 {
                     //reader.Read(buffer, buffer.Length, buffer.Length);
                     //stream.Write(buffer, 0, buffer.Length);
-                    
-                    for (int i = 0; i < fileSize; i++)
+
+                    //for (int i = 0; i < fileSize; i++)
+                    //{
+                    //    var byteRead = reader.ReadByte();
+                    //    WriteDebugText($"s: {byteRead}"); //{BitConverter.ToString(buffer, 0, byteRead)}");
+                    //    stream.WriteByte(byteRead);
+                    //}
+
+                    for (int i = 0; i < fileSize; i += bufferSize)
                     {
-                        var byteRead = reader.ReadByte();
-                        WriteDebugText($"s: {byteRead}"); //{BitConverter.ToString(buffer, 0, byteRead)}");
-                        stream.WriteByte(byteRead);
+                        var byteRead = reader.ReadBytes(bufferSize);
+                        WriteDebugText($"s: {byteRead.Length}: [{byteRead.ToList<byte>().ToString()}]"); //{BitConverter.ToString(buffer, 0, byteRead)}");
+                        
+                        foreach (byte b in byteRead)
+                        {
+                            stream.WriteByte(b);
+                        }
                     }
+
+
+                    WriteDebugText($"Done");
                     reader.Close();
                 }
                 stream.Close();
