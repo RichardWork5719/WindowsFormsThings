@@ -346,17 +346,17 @@ namespace MessingWithWindowsForms
                 string fileName = this.Controls.Find("ReceivedFileNameInputField", true).First().Text;
                 string defaultFileName = Path.Combine(filePath, fileName);
 
-                var buffer = new byte[16]; // default is 1024
+                var buffer = new byte[1024]; // default is 1024
                 client.SendBufferSize = buffer.Length;
 
                 var stream = client.GetStream();
                 int bytesRead = 0;
 
                 WriteDebugText($"Receiving data: "); //var file = File.WriteAllBytes(defaultFileName, );
-                using (var fileStream = new FileStream(defaultFileName, FileMode.Create, FileAccess.Write))
+                using (var fileStream = new FileStream(defaultFileName, FileMode.Create, FileAccess.Write)) // i THINK here is where it shits itself
                 {
                     int totalBytesRead = 0;
-                    while ((bytesRead = stream.Read(buffer, 0, buffer.Length)) != 0)
+                    while ((bytesRead = stream.Read(buffer, 0, buffer.Length)) != 0 && client.Connected)
                     {
                         //bytesRead = stream.Read(buffer, 0, buffer.Length); //ReadByte(); //Read(buffer, 0, buffer.Length);
                         fileStream.Write(buffer, 0, bytesRead); //fileStream.WriteByte((byte)bytesRead); //fileStream.Write(buffer, 0, bytesRead);

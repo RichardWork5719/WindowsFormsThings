@@ -260,6 +260,7 @@ namespace MessingWithWindowsForms
 
         private void SendFile()
         {
+            var timerStart = DateTime.Now;
             try
             {
                 var targetIP = this.Controls.Find("TargetIpInputField", true)[0].Text;
@@ -292,7 +293,7 @@ namespace MessingWithWindowsForms
                     for (int i = 0; i < fileSize; i += bufferSize)
                     {
                         var byteRead = reader.ReadBytes(bufferSize);
-                        WriteDebugText($"s: {byteRead.Length}: [{byteRead.ToList<byte>().ToString()}]"); //{BitConverter.ToString(buffer, 0, byteRead)}");
+                        WriteDebugText($"s: {byteRead.Length}"); //{BitConverter.ToString(buffer, 0, byteRead)}");
                         
                         foreach (byte b in byteRead)
                         {
@@ -321,6 +322,10 @@ namespace MessingWithWindowsForms
                 WriteDebugText("Error..... " + e.StackTrace);
                 WriteDebugText($"Full exception: {e}");
             }
+
+            var timerStop = DateTime.Now;
+            var timerDifference = timerStop - timerStart;
+            WriteDebugText($"\nTime taken: {timerDifference}");
         }
 
         //==========================================================================================================================================================
