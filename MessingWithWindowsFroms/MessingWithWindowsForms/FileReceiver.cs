@@ -307,7 +307,7 @@ namespace MessingWithWindowsForms
                 bool running = true;
                 try
                 {
-                    while (running) // i dont think the code is even getting to this point befre it fucking dies
+                    while (running)
                     {
                         var client = server.AcceptTcpClient();
                         WriteDebugText($"Client connected: {client.Client.RemoteEndPoint}");
@@ -317,10 +317,15 @@ namespace MessingWithWindowsForms
                         //    HandleClient(client);
                         //});
                         //th.Start();
+                        if (!client.Connected)
+                        {
+                            running = false;
+                        }
                     }
                 }
                 catch (Exception ex)
                 {
+                    running = false;
                     server.Stop();
                 }
             }
@@ -367,7 +372,7 @@ namespace MessingWithWindowsForms
                 }
             }
 
-            WriteDebugText($"Done");
+            WriteDebugText($"\nDone");
             client.Close();
         }
 
