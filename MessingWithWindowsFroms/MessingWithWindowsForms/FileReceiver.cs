@@ -265,6 +265,8 @@ namespace MessingWithWindowsForms
 
         private void ReceiveFile()
         {
+            var timerStart = DateTime.Now;
+
             try
             {
                 /*
@@ -338,6 +340,10 @@ namespace MessingWithWindowsForms
                 //WriteDebugText("Error..... " + e.StackTrace);
                 WriteDebugText($"Full exception: \n{e}");
             }
+
+            var timerStop = DateTime.Now;
+            var timerDifference = timerStop - timerStart;
+            WriteDebugText($"\nTime taken: {timerDifference}");
         }
 
         //==========================================================================================================================================================
