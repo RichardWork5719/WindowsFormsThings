@@ -261,6 +261,7 @@ namespace MessingWithWindowsForms
         private void SendFile()
         {
             var timerStart = DateTime.Now;
+
             try
             {
                 var targetIP = this.Controls.Find("TargetIpInputField", true)[0].Text;
